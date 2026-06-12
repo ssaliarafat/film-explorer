@@ -1,22 +1,24 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
-function movieCardTemplate(movie) {
+export function movieCardTemplate(movie) {
   const poster = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : "";
 
   return `
     <li class="movie-card">
-      <article>
-        ${
-          poster
-            ? `<img src="${poster}" alt="${movie.title}" />`
-            : `<div class="poster-fallback">No Image</div>`
-        }
-        <h3>${movie.title}</h3>
-        <p>Rating: ${movie.vote_average}</p>
-        <p>${movie.release_date || "Unknown date"}</p>
-      </article>
+      <a class="movie-card__link" href="/movie/index.html?id=${movie.id}">
+        <article>
+          ${
+            poster
+              ? `<img src="${poster}" alt="${movie.title}" />`
+              : `<div class="poster-fallback">No Image</div>`
+          }
+          <h3>${movie.title}</h3>
+          <p>Rating: ${movie.vote_average || "N/A"}</p>
+          <p>${movie.release_date || "Unknown date"}</p>
+        </article>
+      </a>
     </li>
   `;
 }
@@ -34,6 +36,12 @@ export default class MovieList {
   }
 
   renderList(list) {
-    renderListWithTemplate(movieCardTemplate, this.listElement, list, "afterbegin", true);
+    renderListWithTemplate(
+      movieCardTemplate,
+      this.listElement,
+      list,
+      "afterbegin",
+      true
+    );
   }
 }

@@ -4,6 +4,7 @@
     --text: #ffffff;
     --muted: #b9b9b9;
     --accent: #e50914;
+    --border: #2b2b2b;
 }
 
 * {
@@ -17,11 +18,15 @@ body {
     background: var(--bg);
     color: var(--text);
     padding: 1rem;
+    line-height: 1.5;
 }
 
-.site-header {
+.site-header,
+.site-footer {
     text-align: center;
-    margin-bottom: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 2rem;
+    padding: 1rem;
 }
 
 .site-header h1 {
@@ -34,6 +39,71 @@ body {
     color: var(--muted);
 }
 
+.site-footer {
+    margin-top: 3rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.sr-only {
+    position: absolute;
+    left: -9999px;
+}
+
+.search-section {
+    margin-bottom: 1rem;
+}
+
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.search-form input,
+.controls select {
+    flex: 1;
+    min-width: 220px;
+    padding: 0.8rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #222;
+    color: var(--text);
+}
+
+.search-form button,
+.btn,
+#favoriteBtn,
+.remove-btn {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.search-form button:hover,
+.btn:hover,
+#favoriteBtn:hover,
+.remove-btn:hover {
+    opacity: 0.9;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
 .movie-section h2 {
     margin-bottom: 1rem;
 }
@@ -43,6 +113,11 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
+}
+
+.movie-card__link {
+    text-decoration: none;
+    color: inherit;
 }
 
 .movie-card article {
@@ -78,6 +153,63 @@ body {
     font-size: 0.95rem;
 }
 
+.movie-detail-card {
+    display: grid;
+    gap: 1rem;
+    background: var(--card);
+    color: white;
+    padding: 1rem;
+    border-radius: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.movie-detail-poster {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+}
+
+.movie-detail-info h1 {
+    margin-bottom: 0.5rem;
+}
+
+.movie-detail-info p {
+    margin-bottom: 0.75rem;
+}
+
+.movie-trailer {
+    margin-top: 1.5rem;
+}
+
+.movie-trailer iframe {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 12px;
+}
+
+.favorite-list {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+}
+
+.favorite-card {
+    background: var(--card);
+    padding: 1rem;
+    border-radius: 16px;
+}
+
+.favorite-card img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
 @media (min-width: 700px) {
     body {
         padding: 2rem;
@@ -85,5 +217,10 @@ body {
 
     .site-header h1 {
         font-size: 2.5rem;
+    }
+
+    .movie-detail-card {
+        grid-template-columns: 300px 1fr;
+        align-items: start;
     }
 }

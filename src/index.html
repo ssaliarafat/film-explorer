@@ -15,12 +15,32 @@
         <p>Discover movies, watch trailers, and save favorites.</p>
     </header>
 
-    <main>
-        <section class="movie-section">
-            <h2>Popular Movies</h2>
-            <ul class="movie-list"></ul>
-        </section>
+<main>
+    <section class="search-section">
+        <form class="search-form">
+            <label for="movie-search" class="sr-only">Search movies</label>
+            <input type="search" id="movie-search" placeholder="Search movies..." />
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+<section class="controls">
+    <select id="genreFilter">
+        <option value="">All Genres</option>
+    </select>
+</section>
+
+<section>
+    <a class="btn" href="/favorites/index.html">View Favorites</a>
+</section>
+
+    <section class="movie-section">
+        <h2>Popular Movies</h2>
+        <ul class="movie-list"></ul>
+    </section>
     </main>
 </body>
-
+<footer class="site-footer">
+    <p>&copy; 2026 Film Explorer</p>
+</footer>
 </html>
