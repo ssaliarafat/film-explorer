@@ -91,11 +91,19 @@ main {
     font-weight: bold;
 }
 
+.search-form button,
+.btn,
+#favoriteBtn,
+.remove-btn {
+    transition: transform .25s ease,
+        background .25s ease;
+}
+
 .search-form button:hover,
 .btn:hover,
 #favoriteBtn:hover,
 .remove-btn:hover {
-    opacity: 0.9;
+    transform: scale(1.05);
 }
 
 .controls {
@@ -126,6 +134,7 @@ main {
     overflow: hidden;
     padding-bottom: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    animation: fadeUp .5s ease forwards;
 }
 
 .movie-card img,
@@ -162,6 +171,9 @@ main {
     border-radius: 16px;
     max-width: 900px;
     margin: 0 auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .4);
+    animation: fadeUp .5s ease;
+
 }
 
 .movie-detail-poster {
@@ -180,6 +192,8 @@ main {
 
 .movie-trailer {
     margin-top: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
 }
 
 .movie-trailer iframe {
@@ -188,6 +202,7 @@ main {
     aspect-ratio: 16 / 9;
     border: 0;
     border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .5);
 }
 
 .favorite-list {
@@ -222,5 +237,39 @@ main {
     .movie-detail-card {
         grid-template-columns: 300px 1fr;
         align-items: start;
+    }
+}
+
+.movie-card article {
+    transition: transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.movie-card article:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .5);
+}
+
+.movie-card {
+    overflow: hidden;
+}
+
+.movie-card img {
+    transition: transform .4s ease;
+}
+
+.movie-card:hover img {
+    transform: scale(1.08);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
